@@ -17,14 +17,15 @@ class V1::ContactsController < ApplicationController
     if @contact.destroy
       head(:ok)
     else
-      # Rails way of just returning the content in the header so we dont loose any information 
+      # Rails way of just returning the content in the header so we dont loose any information
       head(:unprocessable_entity)
     end
 
   end
 
   private
-    def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email)
-    end
+
+  def contact_params
+    params.require(:contact).permit(:first_name, :last_name, :email)
+  end
 end
